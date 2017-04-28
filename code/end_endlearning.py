@@ -96,7 +96,6 @@ def createDeconvLayer(inputs,
     shape = inputs.get_shape()
     output_shape = y.compute_output_shape(shape)
     x = y(inputs)
-## BatchNormalization is set off in default. If you want to optimize with mini-batch, you can uncomment the the following two lines and set batch_norm to True.
     if batch_norm:
        x = BatchNormalization()(x)
     if act_func:
@@ -146,7 +145,6 @@ def createConvLayer (inputs,
                        padding = padding,
                        data_format = data_format,
                        )(inputs)                 
-## BatchNormalization is set off in default. If you want to optimize with mini-batch, you can uncomment the the following two lines and set batch_norm to True.
     if batch_norm:
         x = BatchNormalization()(x)
     if act_func:
