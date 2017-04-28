@@ -2,14 +2,19 @@
 This project implements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset for indoor object depth localization.
 
 Directories:
+
   code : contains main function (main.py), core function(end_endlearning.py) and helper functions(conv3dTranspose and pfm loader)
+  
   data : stores middlebury data
+  
   log : stores log file, which is useful for visualization
+  
   model : trained model.
 
 Yor can run the code by calling main.py.
 
 Arguments for main.py:
+
   mode : 0 for prediction, 1 for training with existing model, 2 for training with new model
   
   data : path for training data
