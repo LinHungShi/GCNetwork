@@ -247,5 +247,5 @@ def genCallBacks(model_save_path, log_save_path):
 	callback_tb = TensorBoard(log_dir=log_save_path, histogram_freq=0, write_graph=True, write_images=True)
         callback_mc = ModelCheckpoint(model_save_path, verbose = 1, save_best_only = True, period = 5)
         callback_es = EarlyStopping(min_delta = 0, patience = 10, verbose = 1,)
-	return callback_tb, callback_mc, callback_es
+	return [callback_tb, callback_mc, callback_es]
 
