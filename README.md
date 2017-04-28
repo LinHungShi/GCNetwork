@@ -1,4 +1,5 @@
-# GCNetwork
+# Geometry and Context Network
+### Reference: Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
 ## Please use main function to run the model.
 ## Arguments:
   mode : 0 for prediction, 1 for training with existing model, 2 for training with new model
