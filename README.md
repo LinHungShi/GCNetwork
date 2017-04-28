@@ -36,4 +36,4 @@ This project implements the GCNetwork developed by Kendal, et al(2017). Currentl
 
   ex: srun --pty python code/main.py 2 data/mb_data/mb_train.npz \\-mspath model/mb_model/mbModel.h5 -lspath log/mb_log/log -vdata data/mb_data/mb_val.npz --epochs 
 
-Reference: Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
+#### Reference: Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
