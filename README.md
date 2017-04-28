@@ -1,5 +1,5 @@
 # Geometry and Context Network
-This project implements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset.
+This project implements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset for indoor object depth localization.
 
 Directories:
   code : contains main function (main.py), core function(end_endlearning.py) and helper functions(conv3dTranspose and pfm loader)
