@@ -3,7 +3,6 @@ from keras.layers import Conv3D
 from keras.engine import InputSpec
 from keras import backend as K
 from keras.utils import conv_utils
-""" create by lin """
 def _preprocess_deconv3d_output_shape(x, shape, data_format):
     if data_format == 'channels_first':
         shape = (shape[0], shape[2], shape[3], shape[4], shape[1])
@@ -264,7 +263,3 @@ class Conv3DTranspose(Conv3D):
         config = super(Conv3DTranspose, self).get_config()
         config.pop('dilation_rate')
         return config
-'''
-End --------------------------------
-'''
-print "success"
