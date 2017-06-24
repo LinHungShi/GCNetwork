@@ -24,8 +24,8 @@ def _sharedResNet_(inputs, filters = 32, kernel_size = 3, strides = 1, padding =
     
     input_shape = K.int_shape(inputs[0]) 
     model = _resNetBlock_(input_shape[1:], filters = filters, kernel_size = kernel_size, strides = strides, padding = padding, act_func = act_func)
-    outputs = [add(model(input), input) for input in inputs]
-    return output
+    outputs = [add([model(input), input]) for input in inputs]
+    return outputs
 
 def _addConv3D_(input, filters = 32, kernel_size = 3, strides = 1, padding = 'same', data_format = 'channels_first', bn = True, act_func = 'relu'):
     
