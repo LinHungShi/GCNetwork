@@ -1,5 +1,5 @@
 # Geometry and Context Network
-This project implements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset for indoor object depth localization.
+This project reimplements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset for indoor object depth localization.
 
 ### Directories:
 
