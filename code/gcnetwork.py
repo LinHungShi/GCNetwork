@@ -63,7 +63,7 @@ def _getCostVolume_(inputs, d):
     def featureConcat(lf, states):
         b,f,h,w = lf.get_shape().as_list()
         rf = states[0]
-        rfs = rf[:, :, :, 1:]
+        rfs = rf[:, :, :, 0:]
         disp_rfs = K.spatial_2d_padding(rfs, padding = ((0, 0), (1, 0)), data_format = 'channels_first')
         concat = K.concatenate([lf, rf], axis = 2)
         output = K.reshape(concat, (-1, 2*f, h, w))
