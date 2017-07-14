@@ -29,7 +29,7 @@ if mode == 0:
 	weight_path = args.weight_path
 	model.load_weights(weight_path)
 	prediction = model.predict([limages, rimages], args.batch_size)
-	print "prediction save path is ", args.prediction_save_path
+	print "prediction is saved at ", args.prediction_save_path
 	np.savez(args.prediction_save_path, prediction = prediction)
 	print "prediction complete"
 else:
