@@ -3,6 +3,7 @@ from keras.layers import Conv3D
 from keras.engine import InputSpec
 from keras import backend as K
 from keras.utils import conv_utils
+import tensorflow as tf
 def _preprocess_deconv3d_output_shape(x, shape, data_format):
     if data_format == 'channels_first':
         shape = (shape[0], shape[2], shape[3], shape[4], shape[1])
@@ -11,6 +12,15 @@ def _preprocess_deconv3d_output_shape(x, shape, data_format):
         shape = (tf.shape(x)[0], ) + tuple(shape[1:])
         shape = tf.stack(list(shape))
     return shape
+
+def _preprocess_padding(padding):
+    if padding == 'same':
+        padding = 'SAME'
+    elif padding == 'valid':
+        padding = 'VALID'
+    else:
+        raise ValueError('Invalid border mode:', padding)
+    return padding
 
 def conv3d_transpose(x, kernel, output_shape, strides=(1, 1, 1),
                      padding='valid', data_format=None):
@@ -48,7 +58,21 @@ def conv3d_transpose(x, kernel, output_shape, strides=(1, 1, 1),
                                padding=padding)
     x = _postprocess_conv3d_output(x, data_format)
     return x
-""" End """
+
+def _preprocess_conv3d_input(x, data_format):
+    if K.dtype(x) == 'float64':
+        x = tf.cast(x, 'float32')
+    if data_format == 'channels_first':
+        x = tf.transpose(x, (0, 2, 3, 4, 1))
+    return x
+
+def _postprocess_conv3d_output(x, data_format):
+    if data_format == 'channels_first':
+        x = tf.transpose(x, (0, 4, 1, 2, 3))
+
+    if K.floatx() == 'float64':
+        x = tf.cast(x, 'float64')
+    return x
 class Conv3DTranspose(Conv3D):
     """Transposed convolution layer (sometimes called Deconvolution).
     The need for transposed convolutions generally arises
@@ -222,7 +246,7 @@ class Conv3DTranspose(Conv3D):
         else:
             output_shape = (batch_size, out_depth, out_height, out_width, self.filters)
 
-        outputs = K.conv3d_transpose(
+        outputs = conv3d_transpose(
             inputs,
             self.kernel,
             output_shape,
