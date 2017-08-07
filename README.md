@@ -18,7 +18,7 @@ This project reimplements the GCNetwork developed by Kendal, et al(2017). Curren
   
   data : path for training data
   
-  -mpath : pretrained model path. Provided when mode is 0 for 1.
+  -wpath : pretrained model path. Provided when mode is 0 for 1.
   
   -bs : batch_size. default = 1
   
@@ -26,7 +26,7 @@ This project reimplements the GCNetwork developed by Kendal, et al(2017). Curren
   
   -ep : epochs. default = 10
   
-  -mspath : model_save_path. used when mode is 1 or 2
+  -wspath : model_save_path. used when mode is 1 or 2
   
   -lspath : log_save_path. used when mode is 1 or 2. This is the log file used in Tensorboard.
   
@@ -35,5 +35,7 @@ This project reimplements the GCNetwork developed by Kendal, et al(2017). Curren
   -pspath : file for saving predicted result. Used when mode is 0.
 
   ex: srun --pty python code/main.py 2 data/mb_data/mb_train.npz \\-mspath model/mb_model/mbModel.h5 -lspath log/mb_log/log -vdata data/mb_data/mb_val.npz --epochs 
+  
+  Or simply: python code/main.py -mode 2 -data data/mb_data/mb_train.npz -wspath model/mb_model/mbModel.h5 -lspath log/mb_log/log -vdata data/mb_data/mb_val.npz
 
 #### Reference: Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
