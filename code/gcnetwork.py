@@ -63,7 +63,7 @@ def _getCostVolume_(inputs, d):
     def featureConcat(lf, states):
         b,f,h,w = lf.get_shape().as_list()
         rf = states[0]
-        rfs = rf[:, :, :, 0:]
+        rfs = rf[:, :, :, :-1]
         disp_rfs = K.spatial_2d_padding(rfs, padding = ((0, 0), (1, 0)), data_format = 'channels_first')
         concat = K.concatenate([lf, rf], axis = 2)
         output = K.reshape(concat, (-1, 2*f, h, w))
@@ -147,7 +147,6 @@ def _LearnReg_(input):
     return output
 
 def createGCNetwork(left_img, right_img):
-
     left_feature, right_feature = _createUniFeature_([left_img, right_img])
     cv = Lambda(_getCostVolume_, arguments = {'d':d/2})([left_feature, right_feature])
     print "Using resnet in second stage ? {}".format(RESNET)
