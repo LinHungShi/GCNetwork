@@ -1,9 +1,13 @@
 #This project implements the GCNetwork developed by Kendal, et al(2017)
 
 #TODO: Test if download.sh works. It maybe work.
+
 #TODO: Test if training with Monkaa dataset in SceneFlow works
+
 #TODO: Test if highway net and linear score work. Yes it works.
+
 #TODO: Test if test.py works
+
 #TODO: Test if we can cancel loading weight in command line. Yes We can do it by using python train.py -wpath “”
 
 #Pretrained Weight : SceneFlow_Driving_DrivingFinalPass
