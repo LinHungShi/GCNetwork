@@ -1,0 +1,16 @@
+{
+	"max_disp": 192,
+	"base_num_filters": 32,
+	"first_kernel_size": 5, 
+	"kernel_size": 3,
+	"num_res": 8, 
+	"num_down_conv": 4,
+	"split_ratio": 0.2,
+	"resnet": 1,
+	"output": "softargmin",
+	"act_func": "relu",
+	"h_act_func": "sigmoid",
+	"ds_stride": 2, 
+	"padding": "same",
+	"data_format": "channels_last"
+}

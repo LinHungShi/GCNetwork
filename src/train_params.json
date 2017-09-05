@@ -1,0 +1,16 @@
+{
+	"weight_save_path": "model/pretrained_model_weight.hdf5",
+        "period": 1,
+        "verbose": 1, 
+        "log_save_path": "log",
+	"max_q_size": 3,
+        "save_best_only": 1,
+	"weight_path": "model/pretrained_model_weight.hdf5",
+	"learning_rate": 0.001,
+        "batch_size": 1,
+        "epochs": 10,
+	"epsilon": 0.00000001,
+	"rho": 0.9,
+	"decay": 0.0,
+	"loss_function": "mean_absolute_error"
+}

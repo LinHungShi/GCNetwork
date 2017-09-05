@@ -1,0 +1,7 @@
+{
+	"pspath": "prediction",
+	"batch_size": 1,
+	"w_path": "model_weight.hdf5",
+	"max_q_size": 3,
+	"verbose": 1
+}
