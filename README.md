@@ -1,4 +1,4 @@
-This project implements the GCNetwork developed by Kendal, et al(2017)
+#This project implements the GCNetwork developed by Kendal, et al(2017)
 
 #TODO: Test if download.sh works. It maybe work.
 #TODO: Test if training with Monkaa dataset in SceneFlow works
