@@ -1,24 +1,39 @@
-This project implements the GCNetwork developed by Kendal, et al(2017)
+Geometry and Context Network
 
-#TODO: Test if download.sh works. It maybe work.
+This project reimplements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset for indoor object depth localization.
 
-#TODO: Test if training with Monkaa dataset in SceneFlow works
+Directories:
 
-#TODO: Test if highway net and linear score work. Yes it works.
+code : contains main function (main.py), core function(end_endlearning.py) and helper functions(conv3dTranspose and pfm loader)
 
-#TODO: Test if test.py works
+data : stores middlebury data
 
-#TODO: Test if we can cancel loading weight in command line. Yes We can do it by using python train.py -wpath “”
+log : stores log file, which is useful for visualization
 
-#Pretrained Weight : SceneFlow_Driving_DrivingFinalPass
+model : trained model.
 
-Preprocessing:
-	We crop training patches with size of 256x256 (different from that in the paper) from training images and normalize each channel.
+Running code by calling main.py. Arguments for main.py:
 
-1) To download Driving dataset, create subdirectories sceneflow/driving in data. Then download and tar driving_final pass and driving_disparity from <here>. You can also run the command “sh download.sh”, which will create subdirectories and download datasets.
+mode : 0 for prediction, 1 for training with existing model, 2 for training with new model
 
-2) Train the model by running “python train.py”
- 
-3) (Optional) Specify the pretrained weight while by adding -wpath <path to pretrained weight>, or you can set it in train_params.py
+data : path for training data
 
-To enable training with Monkaa dataset, uncomment the relevant snippet in train.py.
+-mpath : pretrained model path. Provided when mode is 0 for 1.
+
+-bs : batch_size. default = 1
+
+-lr : learning_rate. default = 0.001
+
+-ep : epochs. default = 10
+
+-mspath : model_save_path. used when mode is 1 or 2
+
+-lspath : log_save_path. used when mode is 1 or 2. This is the log file used in Tensorboard.
+
+-vdata : path for validation path
+
+-pspath : file for saving predicted result. Used when mode is 0.
+
+ex: srun --pty python code/main.py 2 data/mb_data/mb_train.npz \-mspath model/mb_model/mbModel.h5 -lspath log/mb_log/log -vdata data/mb_data/mb_val.npz --epochs
+
+Reference: Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
