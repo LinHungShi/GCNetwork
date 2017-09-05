@@ -11,13 +11,13 @@
 ### Two ways to download Driving dataset: 
     1. create subdirectories sceneflow/driving in data, download and tar driving_final pass and driving_disparity from <here>. 
     
-    2. You can also run the command “sh download.sh”, which will create subdirectories and download datasets.
+    2. You can also issue command “sh download.sh”, which will create subdirectories and download datasets.
 
 #### Train the model by running:
     python train.py
  
 #### (Optional) Specify the pretrained weight by
-    1. set it in train_params.pywhile 
+    1. set it in train_params.py
     2. python train.py -wpath <path to the pretrained weight>
 
 #### To enable training with Monkaa dataset, uncomment the relevant snippet in train.py.
