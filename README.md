@@ -1,39 +1,26 @@
-# Geometry and Context Network
-This project reimplements the GCNetwork developed by Kendal, et al(2017). Currently, we only train with the Middlebury 2014 dataset for indoor object depth localization.
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww24820\viewh14920\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-### Directories:
-
-  code : contains main function (main.py), core function(end_endlearning.py) and helper functions(conv3dTranspose and pfm loader)
-  
-  data : stores middlebury data
-  
-  log : stores log file, which is useful for visualization
-  
-  model : trained model.
-
-
-### Running code by calling main.py. Arguments for main.py:
-
-  mode : 0 for prediction, 1 for training with existing model, 2 for training with new model
-  
-  data : path for training data
-  
-  -mpath : pretrained model path. Provided when mode is 0 for 1.
-  
-  -bs : batch_size. default = 1
-  
-  -lr : learning_rate. default = 0.001
-  
-  -ep : epochs. default = 10
-  
-  -mspath : model_save_path. used when mode is 1 or 2
-  
-  -lspath : log_save_path. used when mode is 1 or 2. This is the log file used in Tensorboard.
-  
-  -vdata : path for validation path
-  
-  -pspath : file for saving predicted result. Used when mode is 0.
-
-  ex: srun --pty python code/main.py 2 data/mb_data/mb_train.npz \\-mspath model/mb_model/mbModel.h5 -lspath log/mb_log/log -vdata data/mb_data/mb_val.npz --epochs 
-
-#### Reference: Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
+\f0\fs24 \cf0 #TODO: Test if download.sh works. It maybe work.\
+#TODO: Test if training with Monkaa dataset in SceneFlow works\
+#TODO: Test if highway net and linear score work. Yes it works.\
+#TODO: Test if test.py works\
+#TODO: Test if we can cancel loading weight in command line. Yes We can do it by using python train.py -wpath \'93\'94\
+#Pretrained Weight : SceneFlow_Driving_DrivingFinalPass\
+\
+Preprocessing:\
+	We crop training patches with size of 256x256 (different from that in the paper) from training images and normalize each channel.\
+\
+1) To download Driving dataset, create subdirectories sceneflow/driving in data. Then download and tar driving_final pass and driving_disparity from <here>. You can also run the command \'93sh download.sh\'94, which will create subdirectories and download datasets.\
+\
+2) Train the model by running \'93python train.py\'94\
+ \
+3) (Optional) Specify the pretrained weight while by adding -wpath <path to pretrained weight>, or you can set it in train_params.py\
+\
+To enable training with Monkaa dataset, uncomment the relevant snippet in train.py.\
+\
+}
