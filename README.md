@@ -1,5 +1,6 @@
 # Geometry and Context Network
-    A keras implementation of GC Network by HungShi Lin(hl2997@columbia.edu). The paper can be found [here]("https://arxiv.org/abs/1703.04309")
+    A keras implementation of GC Network by HungShi Lin(hl2997@columbia.edu). The paper can be found 
+    [hello](https://docs.google.com/document/d/112-O9HDOa8jxm9Rzb08w7O5bZioV28pS6c52TWsVpoI/edit?ts=59b075a9)
 
 ### Data used for training model: 
     SceneFlow_Driving_DrivingFinalPass
