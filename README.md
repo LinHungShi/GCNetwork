@@ -16,24 +16,28 @@ I do some modifications by adding a linear output function and enable training h
    We crop training patches with size of 256x256 (different from that in the paper) from training images and normalize each channel.
 
 ### Download
-   run the following command:
-###   
+   Run the following command:
+####   
       git clone https://github.com/LinHungShi/GCNetwork.git
    
-   
-### Two ways to download Driving dataset: 
-    1. create subdirectories sceneflow/driving in data, download and tar driving_final pass and driving_disparity from <here>. 
-    
-    2. You can also issue command “sh download.sh”, which will create subdirectories and download datasets.
+### Two ways to download driving dataset: 
+  
+  1. create subdirectories sceneflow/driving in data, download and tar driving_final pass and driving_disparity from [here](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html). 
+  2. You can also issue command 
+####
+      “sh download.sh”, 
+  which will create subdirectories and download datasets.
 
-#### Train the model by running:
-    python train.py
+### Train the model by running:
+   runt the following command: 
+####
+      python train.py
  
-#### (Optional) Specify the pretrained weight by
-    1. set it in train_params.py
-    2. python train.py -wpath <path to the pretrained weight>
+### (Optional) Specify the pretrained weight by
+   1. set it in train_params.py
+   2. python train.py -wpath <path to the pretrained weight>
 
-#### To enable training with Monkaa dataset, uncomment the relevant snippet in train.py.
+To enable training with Monkaa dataset, uncomment the relevant snippet in train.py.
 
 ### Reference :
-    Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
+   Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
