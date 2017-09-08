@@ -1,5 +1,5 @@
-# Geometry and Context Network[here](https://www.facebook.com/)
-    A keras implementation of GC Network by HungShi Lin(hl2997@columbia.edu). The paper can be found [here](https://www.facebook.com/)
+# Geometry and Context Network
+    ### A keras implementation of GC Network by HungShi Lin(hl2997@columbia.edu). The paper can be found [here](https://arxiv.org/abs/1703.04309)
 
 ### Data used for training model: 
     SceneFlow_Driving_DrivingFinalPass
