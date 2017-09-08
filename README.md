@@ -5,14 +5,22 @@ I do some modifications by adding a linear output function and enable training h
 
 ### Software Requirement
 
-   tensorflow([install from here](https://www.tensorflow.org/install/)) keras([install from here](https://keras.io/#installation))
+   tensorflow([install from here](https://www.tensorflow.org/install/)), keras([install from here](https://keras.io/#installation))
 
-### Data used for training model: 
-    SceneFlow_Driving_DrivingFinalPass
+### Data used for training model
+    
+   SceneFlow_Driving_DrivingFinalPass
 
-### Preprocessing:
-    We crop training patches with size of 256x256 (different from that in the paper) from training images and normalize each channel.
+### Preprocessing
+    
+   We crop training patches with size of 256x256 (different from that in the paper) from training images and normalize each channel.
 
+### Download
+   run the following command:
+###   
+      git clone https://github.com/LinHungShi/GCNetwork.git
+   
+   
 ### Two ways to download Driving dataset: 
     1. create subdirectories sceneflow/driving in data, download and tar driving_final pass and driving_disparity from <here>. 
     
