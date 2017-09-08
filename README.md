@@ -33,7 +33,7 @@ I do some modifications by adding a linear output function and enable training h
    2. Run the following command
 ####
       python test.py -data <path/to/directory> -wpath <path/to/weight> [option]
-   3. The default file name will be saved as npy file named prediction.npy, you can replace it with -pspath when issuing the above command.
+   3. The default file will be saved as npy file named prediction.npy, you can replace it with -pspath when issuing the above command.
 ### (Optional) Specify the pretrained weight by
    1. Set it in train_params.py
    2. python train.py -wpath <path to the pretrained weight>
