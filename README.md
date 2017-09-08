@@ -42,15 +42,15 @@ I do some modifications by adding a linear output function and enable training h
    1. To enable training with Monkaa dataset, 
       a. Download Monkaa dataset from previous link.
       
-      b. Create a directory in data, which has the name as monkaa____root in src/environment.json.
+      b. Create a directory in data, which has the name as monkaa_root in src/environment.json.
       
-      c. Create a subdirectory, which has the name as monkaa____train in src/environment.json.
+      c. Create a subdirectory, which has the name as monkaa_train in src/environment.json.
       
-      d. Create a subdirectory, which has the name as monkaa____label in src/environment.json.
+      d. Create a subdirectory, which has the name as monkaa_label in src/environment.json.
       
       e. Uncomment the relevant snippet in src/train.py.
       
    2. All hyperparameters used for building the model can be found in src/hyperparams.json
 
 ### Reference :
-   _Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
+   Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
