@@ -39,7 +39,12 @@ I do some modifications by adding a linear output function and enable training h
    2. python train.py -wpath <path to the pretrained weight>
 
 ### Something you might want to do
-   1. To enable training with Monkaa dataset, uncomment the relevant snippet in src/train.py.
+   1. To enable training with Monkaa dataset, 
+      a. Download Monkaa dataset from previous link.
+      b. Create a directory in data, which has the name as monkaa____root in src/environment.json.
+      c. Create a subdirectory, which has the name as monkaa____train in src/environment.json.
+      d. Create a subdirectory, which has the name as monkaa____label in src/environment.json.
+      e. Uncomment the relevant snippet in src/train.py.
    2. All hyperparameters used for building the model can be found in src/hyperparams.json
 
 ### Reference :
