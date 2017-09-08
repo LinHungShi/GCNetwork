@@ -24,17 +24,23 @@ I do some modifications by adding a linear output function and enable training h
    which will create subdirectories and download datasets.
    
 ### Train the model by running:
-   runt the following command: 
+   Run the following command: 
 ####
       python train.py
- 
+
+### Predict the data with test.py
+   1. create a directory, which contains two subdirectories -- left and right. 
+   2. Run the following command
+####
+      python test.py -data <path/to/directory> -wpath <path/to/weight> [option]
+   3. The default file name will be saved as npy file named prediction.npy, you can replace it with -pspath when issuing the above command.
 ### (Optional) Specify the pretrained weight by
    1. Set it in train_params.py
    2. python train.py -wpath <path to the pretrained weight>
 
-##### To enable training with Monkaa dataset, uncomment the relevant snippet in src/train.py.
-
-##### All hyperparameters used for training can be found in src/hyperparams.json
+### Something you might want to do
+   1. To enable training with Monkaa dataset, uncomment the relevant snippet in src/train.py.
+   2. All hyperparameters used for building the model can be found in src/hyperparams.json
 
 ### Reference :
    Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
