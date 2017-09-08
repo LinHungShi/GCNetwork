@@ -32,9 +32,9 @@ I do some modifications by adding a linear output function and enable training h
    1. Set it in train_params.py
    2. python train.py -wpath <path to the pretrained weight>
 
-### To enable training with Monkaa dataset, uncomment the relevant snippet in src/train.py.
+##### To enable training with Monkaa dataset, uncomment the relevant snippet in src/train.py.
 
-### All hyperparameters used for training can be found in src/hyperparams.json
+##### All hyperparameters used for training can be found in src/hyperparams.json
 
 ### Reference :
    Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
