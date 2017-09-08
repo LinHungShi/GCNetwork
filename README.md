@@ -53,4 +53,4 @@ I do some modifications by adding a linear output function and enable training h
    2. All hyperparameters used for building the model can be found in src/hyperparams.json
 
 ### Reference :
-   Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
+   _Kendall, Alex, et al. "End-to-End Learning of Geometry and Context for Deep Stereo Regression." arXiv preprint arXiv:1703.04309 (2017).
