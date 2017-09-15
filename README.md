@@ -48,8 +48,6 @@ I do some modifications by adding a linear output function and enable training h
       
       d. Create a subdirectory, which has the name as monkaa_label in src/environment.json.
       
-      e. Uncomment the relevant snippet in src/train.py.
-      
    2. All hyperparameters used for building the model can be found in src/hyperparams.json
 
 ### Reference :
