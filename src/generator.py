@@ -7,10 +7,6 @@ from load_pfm import *
 def generate_arrays_from_file(lefts, rights, up, disps = None):
         crop_height = up['crop_height']
         crop_width = up['crop_width']
-        new_max = up['new_max']
-        new_min = up['new_min']
-        old_max = up['old_max']
-        old_min = up['old_min']
 	train = True
 	if disps == None:
 		disps = np.arange(len(lefts))
@@ -18,6 +14,10 @@ def generate_arrays_from_file(lefts, rights, up, disps = None):
         while 1:
         	random.seed(up['seed'])
         	for ldata, rdata, ddata in zip(lefts, rights, disps):
+			print "\n"
+			print ldata
+			print rdata
+			print ddata
 			left_image = cv2.imread(ldata)
                         right_image = cv2.imread(rdata)
 			if train == True:
@@ -33,7 +33,7 @@ def generate_arrays_from_file(lefts, rights, up, disps = None):
                         	        disp_image = disp_image[start_h:finish_h, start_w:finish_w]
                         	disp_image = np.expand_dims(disp_image, 0)
                         left_image = _centerImage_(left_image, new_max, new_min, old_max, old_min)
-                        right_image = _centerImage_(right_image, new_max, new_min, old_max, old_min)
+                        right_image = _centerImage_(right_image)
                         left_image = np.expand_dims(left_image, 0)
                         right_image = np.expand_dims(right_image, 0)
 			if train == True:

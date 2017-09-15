@@ -8,9 +8,13 @@
 	"weight_path": "model/pretrained_model_weight.hdf5",
 	"learning_rate": 0.001,
         "batch_size": 1,
-        "epochs": 10,
+        "epochs": 1,
 	"epsilon": 0.00000001,
 	"rho": 0.9,
 	"decay": 0.0,
-	"loss_function": "mean_absolute_error"
+	"loss_function": "mean_absolute_error",
+	"cost_volume_weight_save_path": "model/cost_weight.hdf5",
+	"cost_volume_weight_path": "model/cost_weight.hdf5",
+	"linear_output_weight_save_path": "model/linear_output_weight.hdf5",
+	"linear_output_weight_path": "model/linear_output_weight.hdf5"  
 }

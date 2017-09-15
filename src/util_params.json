@@ -1,12 +1,8 @@
 {
 	"crop_width": 256, 
         "crop_height": 256,
-        "new_max": 1,
-        "new_min": -1,
-        "old_max": 256,
-        "old_min": 0,
         "val_ratio": 0.1,
 	"file_extension": "jpg",
 	"seed": 1234,
-	"fraction": 1
+	"fraction": 1 
 }
