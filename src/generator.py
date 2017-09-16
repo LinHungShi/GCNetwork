@@ -14,10 +14,6 @@ def generate_arrays_from_file(lefts, rights, up, disps = None):
         while 1:
         	random.seed(up['seed'])
         	for ldata, rdata, ddata in zip(lefts, rights, disps):
-			print "\n"
-			print ldata
-			print rdata
-			print ddata
 			left_image = cv2.imread(ldata)
                         right_image = cv2.imread(rdata)
 			if train == True:
@@ -32,7 +28,7 @@ def generate_arrays_from_file(lefts, rights, up, disps = None):
                         	        right_image = right_image[start_h:finish_h, start_w:finish_w]
                         	        disp_image = disp_image[start_h:finish_h, start_w:finish_w]
                         	disp_image = np.expand_dims(disp_image, 0)
-                        left_image = _centerImage_(left_image, new_max, new_min, old_max, old_min)
+                        left_image = _centerImage_(left_image)
                         right_image = _centerImage_(right_image)
                         left_image = np.expand_dims(left_image, 0)
                         right_image = np.expand_dims(right_image, 0)
@@ -44,7 +40,7 @@ def generate_arrays_from_file(lefts, rights, up, disps = None):
 			break
 					
 
-def _centerImage_(img, new_max, new_min, old_max, old_min):
+def _centerImage_(img):
 	img = img.astype(np.float32)
 	var = np.var(img, axis = (0,1), keepdims = True)
         mean = np.mean(img, axis = (0,1), keepdims = True)
