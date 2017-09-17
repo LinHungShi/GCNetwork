@@ -16,5 +16,6 @@
 	"cost_volume_weight_save_path": "model/cost_weight.hdf5",
 	"cost_volume_weight_path": "model/cost_weight.hdf5",
 	"linear_output_weight_save_path": "model/linear_output_weight.hdf5",
-	"linear_output_weight_path": "model/linear_output_weight.hdf5"  
+	"linear_output_weight_path": "model/linear_output_weight.hdf5",  
+	"pspath": "prediction"
 }

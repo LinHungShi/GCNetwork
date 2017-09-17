@@ -7,8 +7,8 @@ def parseArguments():
 		env = json.load(json_file)
 	with open('src/train_params.json') as json_file:
 		tp = json.load(json_file)
-	with open('src/test_params.json') as json_file:
-		pp = json.load(json_file)
+	#with open('src/test_params.json') as json_file:
+	#	pp = json.load(json_file)
 	with open('src/util_params.json') as json_file:
 		up = json.load(json_file)
-	return hp, tp, pp, up, env
+	return hp, tp, up, env

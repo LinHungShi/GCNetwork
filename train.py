@@ -9,10 +9,13 @@ from generator import *
 from losses import *
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
 from keras import optimizers
+from keras import backend as K
 import math
 import random
-
 def trainSceneFlowData(hp, tp, up, env, callbacks, weight_path = None):
+	pre_weight = False
+	if not weight_path == "":
+		pre_weight = True
         lr = tp['learning_rate']
         epochs = tp['epochs']
         batch_size = tp['batch_size']
@@ -57,7 +60,7 @@ def trainSceneFlowData(hp, tp, up, env, callbacks, weight_path = None):
         train_generator = generate_arrays_from_file(train[0], train[1], up, train[2])
         num_steps = math.ceil(len(train[0]) / batch_size)
         val_steps = math.ceil(len(val[0]) / batch_size)
-        model = createGCNetwork(hp, tp)
+        model = createGCNetwork(hp, tp, pre_weight)
         optimizer = optimizers.RMSprop(lr = lr, rho = rho, epsilon = epsilon, decay = decay)
         model.compile(optimizer = optimizer, loss = loss, metrics = [lessOneAccuracy, lessThreeAccuracy])
         model.fit_generator(train_generator, validation_data = val_generator, validation_steps = val_steps, steps_per_epoch = num_steps, max_q_size = q_size, epochs = epochs, callbacks = callbacks)
@@ -81,7 +84,7 @@ def genCallBacks(weight_save_path, log_save_path, save_best_only, period, verbos
         return [callback_tb, callback_mc]
 
 if __name__ == '__main__':
-        hp, tp, _, up, env = parseArguments()
+        hp, tp, up, env = parseArguments()
         parser = argparse.ArgumentParser()
         parser.add_argument('-wpath', '--weight_path', help = 'weight path for pretrained model', default = tp['weight_path'])
         args = parser.parse_args()

@@ -36,6 +36,7 @@ def generate_arrays_from_file(lefts, rights, up, disps = None):
                        		yield ([left_image, right_image], disp_image)
 			else:
 				yield ([left_image, right_image])
+
 		if not train:
 			break
 					

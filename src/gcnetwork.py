@@ -129,8 +129,7 @@ def _LearnReg_(input, base_num_filters, ksize, ds_stride, resnet, padding, highw
     cost = Lambda(lambda x: -x)(cost)
     cost = Lambda(K.squeeze, arguments = {'axis': -1})(cost)
     return cost
-
-def createGCNetwork(hp, tp):
+def createGCNetwork(hp, tp, pre_weight):
     cost_weight = tp['cost_volume_weight_path']
     linear_weight = tp['linear_output_weight_path']
     d = hp['max_disp']
@@ -153,14 +152,14 @@ def createGCNetwork(hp, tp):
     cv = Lambda(_getCostVolume_, arguments = {'max_d':d/2}, output_shape = (d/2, None, None, num_filters * 2))(unifeature)
     disp_map = _LearnReg_(cv, num_filters, ksize, ds_stride, resnet, padding, highway_func, num_down_conv)
     cost_model = Model([left_img , right_img], disp_map)
-    if cost_weight:
+    if cost_weight and pre_weight:
         print "Loading pretrained cost weight..."
     	cost_model.load_weights(cost_weight)
     out_func = getOutputFunction(output)
     disp_map_input = Input((d, None, None))
     output = Lambda(out_func, arguments = {'d':d})(disp_map_input)
     linear_output_model = Model(disp_map_input, output)
-    if out_func == "linear" and linear_weight:
+    if out_func == "linear" and linear_weight and pre_weight:
 	print "Loading pretrained linear output weight..."
 	linear_output_model.load_weights(linear_weight)
     model = Model(cost_model.input, linear_output_model(cost_model.output))
