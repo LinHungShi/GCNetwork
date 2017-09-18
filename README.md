@@ -1,4 +1,4 @@
-# Geometry and Context Network
+# Geometry and Context Network (On-Going Project)
    A Keras implementation of GC Network by HungShi Lin(hl2997@columbia.edu). The paper can be found [here](https://arxiv.org/abs/1703.04309).
 I do some modifications by adding a linear output function and enable training highway block at the second stage.
 
