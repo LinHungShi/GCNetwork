@@ -2,6 +2,12 @@
    A Keras implementation of GC Network by HungShi Lin(hl2997@columbia.edu). The paper can be found [here](https://arxiv.org/abs/1703.04309).
 I do some modifications by adding a linear output function and enable training highway block at the second stage.
 
+### Issue
+   1. Model performance can't acheive that in the original paper.
+
+### Update (10/06/2017)
+   Model can be trained with image with size (256, 512)
+   
 ### Software Requirement
    tensorflow([install from here](https://www.tensorflow.org/install/)), keras([install from here](https://keras.io/#installation))
 
