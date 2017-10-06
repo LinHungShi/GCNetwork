@@ -33,17 +33,18 @@ def genMonkaaPath(x, y):
 	return l_paths, r_paths, y_paths
 
 def extractAllImage(lefts, rights, disps):
-	left_images = []
-	right_images = []
-	disp_images = []
-	for left_path, right_path, disp_path in zip(lefts, rights, disps):
-        	left_data = sorted(glob.glob(left_path + "/*.png"))
+        left_images = []
+        right_images = []
+        disp_images = []
+        for left_path, right_path, disp_path in zip(lefts, rights, disps):
+                left_data = sorted(glob.glob(left_path + "/*.png"))
                 right_data = sorted(glob.glob(right_path + "/*.png"))
                 disps_data = sorted(glob.glob(disp_path + "/*.pfm"))
-        	left_images = left_images + left_data
-		right_images = right_images + right_data
-		disp_images = disp_images + disps_data
-	return left_images, right_images, disp_images
+                left_images = left_images + left_data
+                right_images = right_images + right_data
+                disp_images = disp_images + disps_data
+        return left_images, right_images, disp_images
+
 
 def splitData(l, r, d, val_ratio, fraction = 1):
 	tmp = zip(l, r, d)

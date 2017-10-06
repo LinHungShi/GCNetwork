@@ -8,6 +8,6 @@
 	"monkaa_label": "disparity",
 	"train_all": 0,
 	"train_driving": 1,
-	"train_monkaa": 1
+	"train_monkaa": 0 
 }
 
