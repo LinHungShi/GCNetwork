@@ -78,8 +78,7 @@ def getOutputFunction(output):
         if output == 'softargmin':
                 return _computeSoftArgMin_
 
-def _createUniFeature_(input, num_res, filters, first_ksize, ksize, act_func, ds_stride, padding):
-    input_shape = K.int_shape(input)[1:]
+def _createUniFeature_(input_shape, num_res, filters, first_ksize, ksize, act_func, ds_stride, padding):
     conv1 = Conv2D(filters, first_ksize, strides = ds_stride, padding = padding, input_shape = input_shape)
     bn1 = BatchNormalization(axis = -1)
     act1 = Activation(act_func)
@@ -100,7 +99,7 @@ def _LearnReg_(input, base_num_filters, ksize, ds_stride, resnet, padding, highw
     	gate = _addConv3D_(conv, base_num_filters, ksize, 1, padding)
     	trans_gates.insert(0, gate)
     for i in range(num_down_conv):
-	if i < num_down_conv:
+	if i < num_down_conv - 1:
 		mult = 2
 	else:
 		mult = 4
@@ -154,15 +153,15 @@ def createGCNetwork(hp, tp, pre_weight):
     input_shape = (None, None, 3)
     left_img = Input(input_shape, dtype = "float32")
     right_img = Input(input_shape, dtype = "float32")
-    layers = _createUniFeature_(left_img, num_res, num_filters, first_ksize, ksize, act_func, ds_stride, padding)
+    layers = _createUniFeature_(input_shape, num_res, num_filters, first_ksize, ksize, act_func, ds_stride, padding)
     l_feature = createFeature(left_img, layers)
     if shared_weight == 1:
 	print "Use shared weight for first stage"   
-    	r_feature = createFeature(left_img, layers)
+    	r_feature = createFeature(right_img, layers)
     else:
 	print "Use different weights for first stage"
-    	layers2 = _createUniFeature_(left_img, num_res, num_filters, first_ksize, ksize, act_func, ds_stride, padding)
-	r_feature = createFeature(left_img, layers2)
+    	layers2 = _createUniFeature_(input_shape, num_res, num_filters, first_ksize, ksize, act_func, ds_stride, padding)
+	r_feature = createFeature(right_img, layers2)
     unifeatures = [l_feature, r_feature]
     cv = Lambda(_getCostVolume_, arguments = {'max_d':d/2}, output_shape = (d/2, None, None, num_filters * 2))(unifeatures)
     disp_map = _LearnReg_(cv, num_filters, ksize, ds_stride, resnet, padding, highway_func, num_down_conv)
@@ -178,6 +177,5 @@ def createGCNetwork(hp, tp, pre_weight):
         print "Loading pretrained linear output weight..."
         linear_output_model.load_weights(linear_weight)
     model = Model(cost_model.input, linear_output_model(cost_model.output))
-    print "Mondel Summary: ", model.summary
     return model
 
