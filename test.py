@@ -43,7 +43,7 @@ def Predict():
 	if data_path.endswith('npz'):
 		images = np.load(data_path)
 		print "Predict data using arrays"
-		pred = _predictFromArrays_(model, images[left], images[1], images[2], bs)
+		pred = _predictFromArrays_(model, images[1], images[2], bs)
 		np.save(pspath, pred)
 	else:
 		q_size = tp['max_q_size']
@@ -53,7 +53,7 @@ def Predict():
 		right_images = glob.glob(right_path + "/*.{}".format(ext))
 		generator = generate_arrays_from_file(left_images, right_images, up)
 		print "Predict data using generator..."
-		pred = model.predict_generator(generator, max_queue_size = max_q_size, steps = bs, verbose = verbose)
+		pred = model.predict_generator(generator, max_q_size = max_q_size, steps = bs, verbose = verbose)
 		np.save(pspath, pred)
 	K.clear_session()
 if __name__ == "__main__":
